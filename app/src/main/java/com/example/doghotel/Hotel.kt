@@ -5,5 +5,7 @@ data class Hotel(
     val rating: String,
     val distance: String,
     val price: String,
-    val imageResId: Int
+    val imageResId: Int,
+    val description: String,
+    val address: String
 )

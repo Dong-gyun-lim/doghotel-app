@@ -43,6 +43,8 @@ class HotelAdapter(
                 putExtra("rating", hotel.rating)
                 putExtra("distance", hotel.distance)
                 putExtra("price", hotel.price)
+                putExtra("description", hotel.description) // ✅ 추가
+                putExtra("address", hotel.address)         // ✅ 추가
             }
             context.startActivity(intent)
         }
