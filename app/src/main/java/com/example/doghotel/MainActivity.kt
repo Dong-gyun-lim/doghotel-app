@@ -70,3 +70,5 @@ class MainActivity : AppCompatActivity() {
         return Regex("""(\d+(\.\d+)?)""").find(text)?.value?.toDoubleOrNull() ?: 0.0
     }
 }
+
+// 이건 연습용 PR 테스트입니다.
