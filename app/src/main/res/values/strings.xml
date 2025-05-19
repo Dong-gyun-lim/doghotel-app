@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">doghotel</string>
+    <string name="recycler_view_content_description">호텔 리스트</string>
+
+    <!-- Spinner 정렬 옵션 -->
+    <string-array name="sort_options">
+        <item>기본순</item>
+        <item>거리순</item>
+        <item>평점순</item>
+    </string-array>
 </resources>

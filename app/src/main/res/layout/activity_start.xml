@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF9F0">
+
+    <!-- 타이틀 -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🐶 댕놀자"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#4A148C"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- 버튼 그룹 -->
+    <LinearLayout
+        android:id="@+id/buttonGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="32dp">
+
+        <Button
+            android:id="@+id/memberButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="댕놀자 회원"
+            android:textSize="18sp"
+            android:backgroundTint="#7E57C2"
+            android:textColor="@android:color/white"
+            android:elevation="4dp"
+            app:cornerRadius="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/ownerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="댕놀자 사장님"
+            android:textSize="18sp"
+            android:backgroundTint="#BDBDBD"
+            android:textColor="@android:color/white"
+            android:elevation="2dp"
+            app:cornerRadius="16dp"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
