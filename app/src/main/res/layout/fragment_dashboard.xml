@@ -1,0 +1,103 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:divider="?android:dividerVertical"
+        android:showDividers="middle">
+
+        <!-- 공통 스타일 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:minHeight="100dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            android:backgroundTint="#FFFFFF"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/todayReservationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📅 오늘 예약: 5건"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#3F51B5"
+                android:gravity="center_vertical"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:minHeight="100dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            android:backgroundTint="#FFFFFF"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/checkinText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🐶 입실 예정: 3마리"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#009688"
+                android:gravity="center_vertical"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:minHeight="100dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            android:backgroundTint="#FFFFFF"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/monthlyRevenueText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💰 이번 달 매출: 450,000원"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FF9800"
+                android:gravity="center_vertical"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:minHeight="100dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            android:backgroundTint="#FFFFFF"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/notificationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📢 예약이 새로 들어왔습니다!"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#F44336"
+                android:gravity="center_vertical"/>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>

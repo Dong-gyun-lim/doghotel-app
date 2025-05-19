@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Doghotel">
 
+        <activity android:name=".ProviderMainActivity"
+            android:exported="true" />
+
         <activity
             android:name=".HotelDetailActivity"
             android:exported="false" />
