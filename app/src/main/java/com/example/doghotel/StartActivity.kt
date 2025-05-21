@@ -21,8 +21,7 @@ class StartActivity : AppCompatActivity() {
 
         // 사장님 버튼 → 미구현 (Toast로 안내)
         binding.ownerButton.setOnClickListener {
-            // 추후 연결 예정
-            // startActivity(Intent(this, OwnerActivity::class.java))
+            startActivity(Intent(this, ProviderMainActivity::class.java))
         }
     }
 }
