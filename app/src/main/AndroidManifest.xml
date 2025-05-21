@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Doghotel">
 
+        <!-- 서비스 제공자 메인 화면 -->
+        <activity android:name=".ProviderMainActivity"
+            android:exported="true" />
+
         <!-- ✅ 앱 시작화면 (런처) -->
         <activity
             android:name=".StartActivity"
