@@ -14,28 +14,40 @@
         android:divider="?android:dividerVertical"
         android:showDividers="middle">
 
-        <!-- 공통 스타일 -->
+        <!-- ✅ 오늘 예약 영역 -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:minHeight="100dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="6dp"
             android:backgroundTint="#FFFFFF"
             android:padding="20dp">
 
-            <TextView
-                android:id="@+id/todayReservationText"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="📅 오늘 예약: 5건"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#3F51B5"
-                android:gravity="center_vertical"/>
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/todayReservationTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📅 오늘 예약: 0건"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#3F51B5"
+                    android:layout_marginBottom="12dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/todayReservationRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- 입실 예정 -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,6 +69,7 @@
                 android:gravity="center_vertical"/>
         </androidx.cardview.widget.CardView>
 
+        <!-- 매출 -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,6 +91,7 @@
                 android:gravity="center_vertical"/>
         </androidx.cardview.widget.CardView>
 
+        <!-- 알림 -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

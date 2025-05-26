@@ -6,16 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class DashboardFragment : Fragment() {
 
-    private lateinit var todayReservationText: TextView
+    private lateinit var todayReservationTitle: TextView
+    private lateinit var todayReservationRecyclerView: RecyclerView
+    private lateinit var todayReservationAdapter: TodayReservationAdapter
+    private val todayReservationList = mutableListOf<Reservation>()
+
     private lateinit var checkinText: TextView
     private lateinit var monthlyRevenueText: TextView
     private lateinit var notificationText: TextView
-
-    private var reservationCount = 0
-    private val reservationList = mutableListOf<String>()
     private val pendingNotificationList = mutableListOf<String>()
 
     override fun onCreateView(
@@ -28,60 +31,67 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        todayReservationText = view.findViewById(R.id.todayReservationText)
+        todayReservationTitle = view.findViewById(R.id.todayReservationTitle)
+        todayReservationRecyclerView = view.findViewById(R.id.todayReservationRecyclerView)
         checkinText = view.findViewById(R.id.checkinText)
         monthlyRevenueText = view.findViewById(R.id.monthlyRevenueText)
         notificationText = view.findViewById(R.id.notificationText)
 
-        updateTodayReservationText()
-        updateNotificationText()
+        todayReservationAdapter = TodayReservationAdapter(todayReservationList) { canceledReservation, position ->
+            todayReservationAdapter.removeItem(position)
+            updateTodayReservationTitle()
+        }
 
-        checkinText.text = "오늘 입실 예정: 3마리"
+        todayReservationRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        todayReservationRecyclerView.adapter = todayReservationAdapter
+
+        updateNotificationText()
+        updateTodayReservationTitle()
+
+        val checkins = listOf(
+            "뽀삐 / 김지민 / 10:00",
+            "초코 / 이준호 / 12:30",
+            "복돌이 / 최민서 / 15:00"
+        )
+        checkinText.text = "🐶 오늘 입실 예정: ${checkins.size}마리\n" + checkins.joinToString("\n") { "- $it" }
         monthlyRevenueText.text = "이번 달 매출: 450,000원"
     }
 
     fun appendReservation(reservation: Reservation) {
-        val entry = "${reservation.guestName} / ${reservation.petName} / ${reservation.checkInDate}"
-
-        // 오늘 예약 카운트 및 리스트 추가
-        reservationCount++
-        reservationList.add(entry)
-        updateTodayReservationText()
-
-        // ❌ 알림 추가는 여기서 하지 않음
+        todayReservationList.add(reservation)
+        todayReservationAdapter.notifyItemInserted(todayReservationList.size - 1)
+        updateTodayReservationTitle()
     }
 
-    fun removeNotification(reservation: Reservation) {
-        val entry = "${reservation.guestName} / ${reservation.petName} / ${reservation.checkInDate}"
-
-        // 알림에서 제거
-        pendingNotificationList.remove(entry)
-        updateNotificationText()
-
-        // 오늘 예약 리스트 및 카운트에서도 제거
-        if (reservationList.remove(entry)) {
-            reservationCount--
-            updateTodayReservationText()
+    fun removeTodayReservation(reservation: Reservation) {
+        val index = todayReservationList.indexOfFirst { it.id == reservation.id }
+        if (index != -1) {
+            todayReservationList.removeAt(index)
+            todayReservationAdapter.notifyItemRemoved(index)
+            updateTodayReservationTitle()
         }
     }
 
     fun addNotification(reservation: Reservation) {
         if (!this::notificationText.isInitialized) return
-
         val entry = "${reservation.guestName} / ${reservation.petName} / ${reservation.checkInDate}"
         pendingNotificationList.add(entry)
         updateNotificationText()
     }
 
-    private fun updateTodayReservationText() {
-        val header = "오늘 예약: $reservationCount"
-        val body = reservationList.joinToString("\n")
-        todayReservationText.text = if (body.isEmpty()) header else "$header\n$body"
+    fun removeNotification(reservation: Reservation) {
+        val entry = "${reservation.guestName} / ${reservation.petName} / ${reservation.checkInDate}"
+        pendingNotificationList.remove(entry)
+        updateNotificationText()
     }
 
     private fun updateNotificationText() {
         val header = "📢 예약이 새로 들어왔습니다!"
         val body = pendingNotificationList.joinToString("\n")
         notificationText.text = if (body.isEmpty()) header else "$header\n$body"
+    }
+
+    private fun updateTodayReservationTitle() {
+        todayReservationTitle.text = "📅 오늘 예약: ${todayReservationList.size}건"
     }
 }
