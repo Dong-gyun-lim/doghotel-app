@@ -11,6 +11,7 @@ data class Reservation(
     val status: String,
     val notes: String
 ) : Parcelable {
+
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",
         parcel.readString() ?: "",
@@ -30,6 +31,14 @@ data class Reservation(
     }
 
     override fun describeContents(): Int = 0
+
+    override fun equals(other: Any?): Boolean {
+        return other is Reservation && this.id == other.id
+    }
+
+    override fun hashCode(): Int {
+        return id.hashCode()
+    }
 
     companion object CREATOR : Parcelable.Creator<Reservation> {
         override fun createFromParcel(parcel: Parcel): Reservation {

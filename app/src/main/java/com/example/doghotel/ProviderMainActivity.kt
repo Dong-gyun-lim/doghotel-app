@@ -17,8 +17,9 @@ class ProviderMainActivity : AppCompatActivity() {
         val dummyList = arrayListOf(
             Reservation("1", "김철수", "멍멍이", "2025-05-18", "예약완료", "예민함 주의"),
             Reservation("2", "이영희", "복슬이", "2025-05-19", "예약완료", "크게 짖음"),
-            Reservation("3", "박민수", "바둑이", "2025-05-20", "예약완료", "약 알러지 있음")
-
+            Reservation("3", "박민수", "바둑이", "2025-05-20", "예약완료", "약 알러지 있음"),
+            Reservation("4", "임동균", "뚜벅이", "2025-05-21", "예약완료", "특이사항 없음"),
+            Reservation("5", "장재하", "개복치", "2025-05-22", "예약완료", "크게 짖음")
         )
 
         // Fragment 인스턴스 생성
