@@ -1,0 +1,24 @@
+<!-- activity_map.xml -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/map_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 네이버 지도 프래그먼트 자리 -->
+    <fragment
+        android:id="@+id/map_fragment"
+        android:name="com.naver.maps.map.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 🟣 목록 보기 버튼 (화면 아래쪽 고정) -->
+    <Button
+        android:id="@+id/viewListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="목록 보기"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#6200EE"
+        android:textColor="@android:color/white" />
+</FrameLayout>

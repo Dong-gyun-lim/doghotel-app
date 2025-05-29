@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/hotelNameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="호텔 이름"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <ImageView
+        android:id="@+id/hotelImageView"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/hotelRatingText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="★4.7"
+        android:textSize="16sp"
+        android:paddingTop="12dp" />
+
+    <TextView
+        android:id="@+id/hotelPriceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="20000원"
+        android:textSize="16sp"
+        android:paddingTop="4dp" />
+
+    <TextView
+        android:id="@+id/hotelDescriptionText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="호텔 설명"
+        android:textSize="14sp"
+        android:paddingTop="8dp" />
+
+    <TextView
+        android:id="@+id/hotelAddressText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="주소"
+        android:textSize="14sp"
+        android:paddingTop="4dp" />
+
+</LinearLayout>
