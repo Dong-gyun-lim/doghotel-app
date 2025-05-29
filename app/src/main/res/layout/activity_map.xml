@@ -1,13 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/map_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MapActivity">
 
-    <!-- Google 지도 Fragment -->
-    <fragment
-        android:id="@+id/map_fragment"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <!-- 지도 이미지 스크롤 가능 영역 -->
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:overScrollMode="never">
+
+            <FrameLayout
+                android:id="@+id/mapImageContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <!-- 지도 이미지 -->
+                <ImageView
+                    android:id="@+id/staticMapImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/naver_map"
+                    android:contentDescription="지도 이미지" />
+
+                <!-- 마커 1~8 -->
+                <ImageView android:id="@+id/marker1" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="top|start" android:layout_marginTop="480dp" android:layout_marginStart="130dp" android:src="@drawable/ic_marker" android:contentDescription="마커 1" />
+                <ImageView android:id="@+id/marker2" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="top|start" android:layout_marginTop="600dp" android:layout_marginStart="390dp" android:src="@drawable/ic_marker" android:contentDescription="마커 2" />
+                <ImageView android:id="@+id/marker3" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="top|start" android:layout_marginTop="700dp" android:layout_marginStart="150dp" android:src="@drawable/ic_marker" android:contentDescription="마커 3" />
+                <ImageView android:id="@+id/marker4" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="top|start" android:layout_marginTop="420dp" android:layout_marginStart="520dp" android:src="@drawable/ic_marker" android:contentDescription="마커 4" />
+                <ImageView android:id="@+id/marker5" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="top|start" android:layout_marginTop="770dp" android:layout_marginStart="580dp" android:src="@drawable/ic_marker" android:contentDescription="마커 5" />
+                <ImageView android:id="@+id/marker6" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="top|start" android:layout_marginTop="350dp" android:layout_marginStart="330dp" android:src="@drawable/ic_marker" android:contentDescription="마커 6" />
+                <ImageView android:id="@+id/marker7" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="top|start" android:layout_marginTop="630dp" android:layout_marginStart="250dp" android:src="@drawable/ic_marker" android:contentDescription="마커 7" />
+                <ImageView android:id="@+id/marker8" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="top|start" android:layout_marginTop="540dp" android:layout_marginStart="620dp" android:src="@drawable/ic_marker" android:contentDescription="마커 8" />
+
+            </FrameLayout>
+        </ScrollView>
+    </HorizontalScrollView>
+
+    <!-- 축척/NAVER 로고 고정 -->
+    <ImageView
+        android:id="@+id/naverScale"
+        android:layout_width="202dp"
+        android:layout_height="151dp"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="-20dp"
+        android:layout_marginBottom="-50dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="축척 이미지"
+        android:scaleType="fitCenter"
+        android:src="@drawable/naver_scale_bar" />
+
+    <!-- 확대/축소 버튼 -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="220dp">
+        <include layout="@layout/zoom_controls" />
+    </FrameLayout>
+
+    <!-- 하단 카드 포함 (초기 숨김) -->
+    <include
+        android:id="@+id/bottomCardInLayout"
+        layout="@layout/item_map_bottom_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:background="#FFFFFF"
+        android:elevation="10dp" />
+
+    <!-- 목록 버튼: 마커 클릭 전엔 중앙, 클릭 후엔 카드 위 -->
+    <Button
+        android:id="@+id/btnList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:text="목록"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:background="@drawable/btn_list_background"
+        android:stateListAnimator="@null"
+        android:elevation="0dp" />
 
 </FrameLayout>

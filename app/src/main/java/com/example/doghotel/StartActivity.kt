@@ -14,12 +14,12 @@ class StartActivity : AppCompatActivity() {
         binding = ActivityStartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 회원 버튼 → 기존 MainActivity 이동
+        // ✅ 회원 버튼 → MapActivity로 이동 (수정됨)
         binding.memberButton.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, MapActivity::class.java))
         }
 
-        // 사장님 버튼 → 미구현 (Toast로 안내)
+        // 사장님 버튼 → ProviderMainActivity로 이동
         binding.ownerButton.setOnClickListener {
             startActivity(Intent(this, ProviderMainActivity::class.java))
         }

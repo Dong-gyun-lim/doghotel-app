@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class HotelAdapter(
     private val context: Context,
-    private val hotelList: List<Hotel>
+    private val hotelList: List<HotelForList>
 ) : RecyclerView.Adapter<HotelAdapter.HotelViewHolder>() {
 
     class HotelViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
